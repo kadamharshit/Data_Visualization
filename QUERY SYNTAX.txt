@@ -1,0 +1,121 @@
+EXISITING DATBASES:
+Show databases;
+
+CREATE A DATABASE=>
+create database database_name;
+
+ENTER A DATABASE=>
+use database_name;
+
+SEE TABLES IN THE DATABASE=>
+show tables;
+
+CREATE TABLE=>
+create table table_name (column_name datatype constraint);
+
+DESCRIPTION OF TABLE =>
+desc table_name;
+
+SELECT QUERY=>
+NORMAL QUERY =>
+select column_name /* (for all) from table_name;
+
+SELECT WITH WHERE =>
+select column_name /* (for all) from table_name where condition;
+
+
+
+
+
+INSERT QUERY:
+
+INSERT EACH ROW INDIVIDUALLY=>
+insert into table_name values (values);
+
+INSERT MUTIPLE ROWS IN ON GO=> (ALSO USED WHEN WE DONT KNOW SOME FIELDS VALUE)
+insert into table_name (column_names) values (values);
+
+
+USE DEFAULT KEYWORD WHILE INSERTING:
+insert into table_name values (values,DEFAULT);
+
+
+
+ALTER QUERIES =>
+
+MODIFY COLUMN (USE FOR DATA TYPE MODIFICATION AND CONSTRAINTS ADDITION):
+alter table table_name modify column column_name datatype contraints;
+
+ADD COLUMN:
+alter table table_name add column column_name datatype contraints;
+
+RENAME COLUMN NAME (NO NEED TO MENTION DATA TYPE):
+alter table table_name rename column old_column_name to new_column_name;
+
+CONSTRAINT: UNIQUE =>
+alter table table_name add column column_name datatype unique;
+
+CONSTRAINT : CHECK=>
+alter table table_name add column column_name datatype check(condition);
+
+CONSTRAINT : NOT NULL =>
+alter table table_name modify column column_name datatype not null;
+
+CONTRAINT: DEFAULT =>
+alter table table_name add column column_name datatype DEFAULT 'Value';
+
+
+
+UPDATE QUERIES =>
+
+Update table_name set coumn_name = value where column_name = value;
+
+
+
+PRIMAY KEY => it is unique and used to other connect with other tables
+syntax:
+column_name datatype primary key
+
+FOREIGN KEY => used to connect to other table
+syntax:
+table 1 => s_id int primary key,
+table 2 => s_id int 
+in table 2, foreign key (table_2 column name) references table1 name (table1 column_name);
+
+
+
+JOINS => USED TO VIEW COLUMNS COMBINED FROM MULTIPLE TABLES.
+IT IS FOR DML COMMAND - SELECT ONLY
+TYPES:
+Inner Join -> intersection of 2 tables
+Left Join -> whole table 1
+Right Join -> whole table 2
+Full outer join -> combined table 1 and 2
+
+
+INNER JOIN 
+SYNTAX:
+select table1.column_name,table1.column_name,table2.column_name,table2.column_name,
+	from table1
+	inner join table2
+	on table1.column_name = table2.column_name
+LEFT JOIN
+SYTNAX:
+select table1.column_name,table1.column_name,table2.column_name,table2.column_name,
+	from table1
+	left join table2
+	on table1.column_name = table2.column_name
+
+RIGHT JOIN
+SYNTAX:
+select table1.column_name,table1.column_name,table2.column_name,table2.column_name,
+	from table1
+	right join table2
+	on table1.column_name = table2.column_name
+
+FULL OUTER JOIN
+SYNTAX:
+
+
+
+
