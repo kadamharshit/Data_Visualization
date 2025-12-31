@@ -1,8 +1,42 @@
-EXISITING DATBASES:
+SQL (STRUCTURED QUERY LANGUAGE) - MANAGE THE RELATIONAL DATABASES
+5 TYPES OF SQL:
+
+DDL (DATA DEFINITION LANGUAGE)
+CREATE: CREATE A TABLE/DATABASE/TRIGGER WITH CONSTRAINTS
+ALTER: MODIFY OR ADD COLUMN
+DROP: REMOVE THE TABLE/STRUCTURE.
+TRUNCATE: REMOVE ALL THE ROWS BUT STRUCTURE IS KEPT AS IT IS.
+RENAME: CHANGE THE TABLE NAME OR COLUMN NAME
+
+DML (DATA MANIPULATION LANGUAGE)
+INSERT: ADDING DATA IN ROW
+UPDATE: MODIFY THE DATA IN ROW (EXISIING DATA)
+DELETE: DELETE THE SPECIFIC ROW (BASED ON CONDITION HERE WHERE CLAUSE IS USED.)
+
+DQL (DATA QUERY LANGUAGE
+SELECT: RETRIEVE THE DATA 
+
+DCL (DATA CONTROL LANGUAGE)
+GRANT: PROVIDE PREVIELGE/PERMISSION TO DATABASE.
+REVOKE: WITHDRAW THE PERMISSION FROM THE USER ON DATABASE.
+
+TCL (TRANSACTION CONTROL LANGUAGE)
+COMMIT: PERMANTELY SAVE THE DATA
+ROLLBACK: REVERSE ALL THE CHANGED IN THE CURRENT TRANSACTION.
+SAVEPOINT: CREATE THE MARKER IN CURRENT TRANSACTION WHICH CAN BE ROLLBACK TO THE PREVIOUS CHANGES.
+
+
+
+SQL SERVER COMMANDS:
+
+EXISITING DATBASES=>
 Show databases;
 
 CREATE A DATABASE=>
 create database database_name;
+
+DROP DATABASE=>
+drop database database_name;
 
 ENTER A DATABASE=>
 use database_name;
@@ -25,7 +59,12 @@ select column_name /* (for all) from table_name where condition;
 
 
 
+TRUNCATE QUERY:
+TRUNCATE TABLE table_name;
 
+pattern matching
+LIKE keyword:
+select column_name from table_name where column_name like 'c%';
 
 INSERT QUERY:
 
@@ -115,7 +154,65 @@ select table1.column_name,table1.column_name,table2.column_name,table2.column_na
 
 FULL OUTER JOIN
 SYNTAX:
+SELECT table1.column_name, table2.column_name
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name;
+
+
+ORDER BY CLAUSE (show the details in ascending or desending order)
+syntax:
+Select * from table_name ORDER BY column_name ASC/DESC;
+Select * from table_name ORDER BY column_name ASC/DESC LIMIT 2; (this will show the data as per the limit here only 2 records)
+
+
+mysql> alter table studDetails modify column gender char(1) check in(gender('m','f'));
 
 
 
 
+
+WEBINAR SESSION:
+AGGREGATE FUNCTIONS
+
+COUNT: select count(*) as alias_name from table_name ; => use alias(petname) in
+AVG:  select avg(column_name) as alias_name from table_name;
+SUM: select sum(column_name) as alias_name from table_name;
+MAX: select max(column_name) as alias_name from table_name;
+MIN: select min(column-name) as alias_name from table_name;
+IN
+LIKE
+
+GROUP BY:
+
+HAVING CLAUSE:
+
+select first_name
+from patients
+group by first_name 
+having count(*) = 1;
+
+
+
+Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long:
+select patient_id,first_name
+from patients
+where first_name like 's____%s'; 
+
+Show unique birth years from patients and order them by ascending.
+select distinct year(birth_date) as birth_year
+from patients
+order by birth_date asc;
+
+
+
+
+
+
+Show patient_id, first_name, last_name from patients whos diagnosis is 'Dementia'.
+
+Primary diagnosis is stored in the admissions table.
+select patients.patient_id,first_name,last_name
+from patients join admissions
+on admissions.patient_id = patients.patient_id
+where admissions.diagnosis = 'Dementia';
